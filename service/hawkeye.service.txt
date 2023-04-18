@@ -1,0 +1,16 @@
+[Unit]
+Description=Adam Robot Camera Streamer service
+
+[Service]
+RuntimeDirectory=hawkeye
+ExecStart=/usr/bin/hawkeye -c /etc/hawkeye.conf
+SyslogIdentifier=Hawkeye
+User=
+
+# ensure the service restarts after crashing
+Restart=always
+# amount of time to wait before restarting the service
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
